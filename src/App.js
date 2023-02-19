@@ -1,22 +1,38 @@
-import React, { useState } from "react";
-import logo from './logo.svg';
-import './App.css';
-import { Login } from "./components/Login";
-import { Register } from "./components/Register";
+import React from 'react'
+import Home from './components/home/Home'
+import Login from './components/forms/Login'
+import Signup from './components/forms/Signup'
+import Calc from './components/calc/Calc'
+import Plans from './components/plans/Plans'
+import Layout from './components/Layout';
+import UserAuthContext from './context/UserAuthContext';
+import ProtectedRoute from './components/forms/ProtectedRoute';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
+
+
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path='/' element={<Layout />}>
+    <Route index element={<Login />}></Route>
+    <Route path='/Signup' element={<Signup />}></Route>
+    <Route path='/home' element={<Home />}></Route>
+    <Route path='/plans' element={<Plans />}></Route>
+    <Route path='/Calc' element={<Calc />}></Route>
+  </Route>
+));
+
 
 function App() {
-  const [currentForm, setCurrentForm] = useState('login');
-
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  }
-
   return (
-    <div className="App">
-      {
-        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
-      }
-    </div>
+      <UserAuthContext>
+    <RouterProvider router={router} >
+    </RouterProvider>
+      </UserAuthContext>
   );
 }
 
