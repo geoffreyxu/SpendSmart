@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
      <Header></Header>
-      <div style={{ color: "black", fontSize: "50px" }}>Welcome to the home page</div>
+      <h1>Welcome to the home page</h1>
     </>
   )
 }

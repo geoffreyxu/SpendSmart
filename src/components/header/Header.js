@@ -69,6 +69,17 @@ const Header = () => {
                      Plans
                   </NavLink>
                </li>
+               <li>
+                  <NavLink
+                     className="active"
+                     to="/Profile"
+                     style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                     }
+                  >
+                     Profile
+                  </NavLink>
+               </li>
                
               
                
