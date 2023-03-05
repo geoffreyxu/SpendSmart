@@ -9,7 +9,9 @@
     "firebase": "^9.17.1",
     "react": "^18.2.0",
     "react-big-calendar": "^1.6.8",
+    "react-calendar": "^4.0.0",
     "react-dom": "^18.2.0",
+    "react-intl": "^6.2.10",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
