@@ -26,9 +26,7 @@ const Header = () => {
 
             <Link
                className="logo"
-               to="/home"
-
-            >
+               to="/home">
                BudgetApp
             </Link>
          </div>

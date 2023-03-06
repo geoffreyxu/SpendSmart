@@ -8,7 +8,7 @@
     left: 0;
     width: 100%;
     text-decoration: none;
-z-index: 10000000;
+    z-index: 100000;
 }
 
 .logo {
@@ -18,7 +18,6 @@ z-index: 10000000;
     display: block;
     text-decoration: none;
     color: #333;
-
 }
 
 .link {
@@ -56,14 +55,145 @@ z-index: 10000000;
 ;    }
 
 .balance-box {
+    position: relative;
     background-color: #4CAF50;
     color: white;
-    padding: 20px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 1;
+    text-decoration: none;
+    cursor: pointer;
+  }
+.add-balance {
+  position: relative;
+  background-color: #E5E4E2;
+  color: green;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border-color: green;
+  border-style: solid;
+  border-width: 2px;
+}
+.add-expense {
+  position: relative;
+  background-color: #E5E4E2;
+  color: red;
+  padding: 5px 11px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border-color: red;
+  border-style: solid;
+  border-width: 2px;
+  margin-top: 8px;
+}
+
+
+
+
+
+/*.icon {
+    background-color: #E5E4E2;
+    color: white;
+    width: 50px;
+    height: 50px;
+    padding: 10px 5px;
     border-radius: 5px;
     position: relative;
-    z-index: 3;
+    z-index: 1;
+    text-decoration: none;
+    text-align:center;
+    cursor: pointer;
+}*/
+
+.menu {
+  width:801px;
+  height:501px;
+  position:relative;
+  margin:100px;
+}
+
+.icon {
+  display:block;
+  position:absolute;
+  top:51%;
+  left:51%;
+  padding: 10px 5px 2px;
+  margin:-51px;
+  background-color: #E5E4E2;
+  border-radius: 20%;
+  text-decoration: none;
+  justify-content:center;
+  line-height: 30px;
+}
+
+.deg-0 {
+  transform:translate(401px)
+}
+
+.deg-45 {
+  transform:rotate(30deg) translate(301px) rotate(-30deg);
+}
+
+.deg-90 {
+  transform:rotate(90deg) translate(251px) rotate(-90deg);
+}
+
+.deg-135 {
+  transform:rotate(150deg) translate(301px) rotate(-150deg);
+}
+
+.deg-180 {
+  transform:rotate(180deg) translate(401px) rotate(-180deg);
+}
+
+.deg-225 {
+  transform:rotate(210deg) translate(301px) rotate(-210deg);
+}
+
+.deg-270 {
+  transform:rotate(270deg) translate(251px) rotate(-270deg);
+}
+
+.deg-315 {
+  transform:rotate(330deg) translate(301px) rotate(-330deg);
+}
+/*.icon:nth-child(Shopping) {
+    transform: rotate(0deg) translate(150px) rotate(0deg);
   }
 
+
+.icon:nth-child(2) {
+    transform: rotate(72deg) translate(150px) rotate(-72deg);
+  }
+  
+.icon:nth-child(3) {
+    transform: rotate(144deg) translate(150px) rotate(-144deg);
+  }
+  
+.icon:nth-child(4) {
+    transform: rotate(216deg) translate(150px) rotate(-216deg);
+  }
+  
+.icon:nth-child(5) {
+    transform: rotate(288deg) translate(150px) rotate(-288deg);
+  }
+
+.icon:nth-child(Medical) {
+    transform: rotate(144deg) translate(150px) rotate(-144deg);
+  }
+  
+.icon:nth-child(7) {
+    transform: rotate(216deg) translate(150px) rotate(-216deg);
+  }
+  
+.icon:nth-child(Miscellaneous) {
+    transform: rotate(288deg) translate(150px) rotate(-288deg);
+  }*/
 /*body{
   background-color: hsl(176, 80%, 30%);
   padding: 0px;
