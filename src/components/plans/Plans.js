@@ -1,3 +1,5 @@
+/*
+
 import React from 'react'
 import Header from '../header/Header'
 //import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -45,7 +47,7 @@ export default Plans;
 
 
 
-
+*/
 
 
 /*
