@@ -46,4 +46,14 @@
     width: 40px !important;
     height: 38px !important;
   }
+
+  .react-calendar {
+    width: 1280px !important;
+    height: 750px;
+  }
+
+  .react-calendar__tile {
+    font-size: 1.2em;
+    line-height: 5em !important;
+  }
   
