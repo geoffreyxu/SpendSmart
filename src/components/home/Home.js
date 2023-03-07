@@ -1,17 +1,25 @@
 import React from 'react'
 import './Home.css'
+import { useState } from 'react'
 import Header from '../header/Header'
 import { useAuth } from '../../context/UserAuthContext'
 import { Link, useNavigate } from "react-router-dom"
 
 const Home = () => {
-
+  const [addModal, setModal0] = useState(false);
+  const toggleModal0 = () => {
+      setModal0(!addModal)
+  }
+  const [minModal, setModal1] = useState(false);
+  const toggleModal1 = () => {
+      setModal1(!minModal)
+  }
   const { logout } = useAuth()
   const navigate = useNavigate()
 
   const Balance = () => {
     return (
-      <section className="balance">
+      <div>
           <h2>
             <Link
                className="balance-box"
@@ -20,20 +28,53 @@ const Home = () => {
             </Link>
          </h2>
         <div>
-          <h4>
-            <Link
-               className="add-balance"
-               to="/profile">
-               Add Budget
-            </Link>
-            <Link
-               className="add-expense"
-               to="/profile">
-               Add Expense
-            </Link>
-          </h4>
+            <button 
+            onClick={toggleModal0}
+            className ="add-balance">
+            <h3>
+            Add Budget
+            </h3>
+            </button>
+            {addModal && (
+              <div className="modal">
+                <div 
+                className="overlay"
+                onClick={toggleModal0}></div>
+                <div className="modal-content">
+                  <h2>Add Balance</h2>
+                  <p>
+                    USD: 
+                  </p>
+                  <button 
+                  className="close-modal"
+                  onClick={toggleModal0}
+                  >CLOSE</button>
+                </div>
+                </div>
+            )}
+            <button 
+            onClick={toggleModal1}
+            className ="add-expense">
+            <h3>
+            Add Expense
+            </h3>
+            </button>
+            {minModal && (
+              <div className="modal">
+                <div 
+                className="overlay"
+                onClick={toggleModal1}></div>
+                <div className="modal-content">
+                  Sample text 2
+                  <button 
+                  className="close-modal"
+                  onClick={toggleModal1}
+                  >CLOSE</button>
+                </div>
+                </div>
+            )}
         </div>
-      </section>
+    </div>
     );
   }
   const Menu = () => {
@@ -122,24 +163,6 @@ const Home = () => {
     </div>
     );
   };
-/*          <i className="fas fa-cart"></i>
-          <p>Shopping</p>
-          <i className="fas fa-clothes"></i>
-          <p>Clothing</p>
-          <i className="fas fa-food"></i>
-          <p>Food</p>  
-          <i className="fas fa-beer"></i>
-          <p>Entertainment</p>          
-          <i className="fas fa-car"></i>
-          <p>Car</p>
-          <i className="fas fa-home"></i>
-          <p>Home</p>
-          <i className="fas fa-phone"></i>
-          <p>Phone</p>      
-          <i className="fas fa-thermometer"></i>
-          <p>Medical</p>      
-          <i className="fas fa-thermometer"></i>
-          <p>Misc.</p> */
   return (
     <>
     <Header></Header>  

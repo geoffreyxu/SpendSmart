@@ -60,15 +60,15 @@
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
-    z-index: 1;
     text-decoration: none;
     cursor: pointer;
   }
+
 .add-balance {
   position: relative;
   background-color: #E5E4E2;
   color: green;
-  padding: 5px 10px;
+  padding: 5px 14px;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
@@ -77,11 +77,12 @@
   border-style: solid;
   border-width: 2px;
 }
+
 .add-expense {
   position: relative;
   background-color: #E5E4E2;
   color: red;
-  padding: 5px 11px;
+  padding: 5px 14px;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
@@ -92,23 +93,6 @@
   margin-top: 8px;
 }
 
-
-
-
-
-/*.icon {
-    background-color: #E5E4E2;
-    color: white;
-    width: 50px;
-    height: 50px;
-    padding: 10px 5px;
-    border-radius: 5px;
-    position: relative;
-    z-index: 1;
-    text-decoration: none;
-    text-align:center;
-    cursor: pointer;
-}*/
 
 .menu {
   width:801px;
@@ -132,68 +116,96 @@
 }
 
 .deg-0 {
-  transform:translate(401px)
+  transform:translate(48vh)
 }
 
 .deg-45 {
-  transform:rotate(30deg) translate(301px) rotate(-30deg);
+  transform:rotate(30deg) translate(37vh) rotate(-30deg);
 }
 
 .deg-90 {
-  transform:rotate(90deg) translate(251px) rotate(-90deg);
+  transform:rotate(90deg) translate(31vh) rotate(-90deg);
 }
 
 .deg-135 {
-  transform:rotate(150deg) translate(301px) rotate(-150deg);
+  transform:rotate(150deg) translate(37vh) rotate(-150deg);
 }
 
 .deg-180 {
-  transform:rotate(180deg) translate(401px) rotate(-180deg);
+  transform:rotate(180deg) translate(48vh) rotate(-180deg);
 }
 
 .deg-225 {
-  transform:rotate(210deg) translate(301px) rotate(-210deg);
+  transform:rotate(210deg) translate(37vh) rotate(-210deg);
 }
 
 .deg-270 {
-  transform:rotate(270deg) translate(251px) rotate(-270deg);
+  transform:rotate(270deg) translate(31vh) rotate(-270deg);
 }
 
 .deg-315 {
-  transform:rotate(330deg) translate(301px) rotate(-330deg);
+  transform:rotate(330deg) translate(37vh) rotate(-330deg);
 }
-/*.icon:nth-child(Shopping) {
-    transform: rotate(0deg) translate(150px) rotate(0deg);
-  }
 
 
-.icon:nth-child(2) {
-    transform: rotate(72deg) translate(150px) rotate(-72deg);
-  }
-  
-.icon:nth-child(3) {
-    transform: rotate(144deg) translate(150px) rotate(-144deg);
-  }
-  
-.icon:nth-child(4) {
-    transform: rotate(216deg) translate(150px) rotate(-216deg);
-  }
-  
-.icon:nth-child(5) {
-    transform: rotate(288deg) translate(150px) rotate(-288deg);
-  }
+body.active-modal {
+  overflow-y: hidden;
+}
 
-.icon:nth-child(Medical) {
-    transform: rotate(144deg) translate(150px) rotate(-144deg);
-  }
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
   
-.icon:nth-child(7) {
-    transform: rotate(216deg) translate(150px) rotate(-216deg);
-  }
-  
-.icon:nth-child(Miscellaneous) {
-    transform: rotate(288deg) translate(150px) rotate(-288deg);
-  }*/
+/*.icon {
+    background-color: #E5E4E2;
+    color: white;
+    width: 50px;
+    height: 50px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    text-align:center;
+    cursor: pointer;
+}*/
+
 /*body{
   background-color: hsl(176, 80%, 30%);
   padding: 0px;
