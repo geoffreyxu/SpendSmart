@@ -1,9 +1,6 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  }
-  
+
+
+  /*
   body {
     font-family: "Poppins", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -28,12 +25,13 @@
   {
     cursor: pointer;
   }
-  /*
+  
   .box {
     border: 1px solid #950d0d;
     background-color: rgb(65, 205, 203);
   }
-  */
+  
+  
   
   .g-btn {
     width: 100% !important;
@@ -46,4 +44,4 @@
     width: 40px !important;
     height: 38px !important;
   }
-  
+*/
