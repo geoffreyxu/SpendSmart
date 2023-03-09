@@ -34,7 +34,9 @@ function Plans() {
   };
   return (
     <>
-    <Header/>
+    <Header></Header>
+    
+
       <Container style={{width : "400px"}}>
         <Row>
           <Col>

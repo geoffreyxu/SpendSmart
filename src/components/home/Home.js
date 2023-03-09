@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 import { useAuth } from '../../context/UserAuthContext'
 import { Link, useNavigate } from "react-router-dom"
@@ -17,3 +18,33 @@ const Home = () => {
 }
 
 export default Home
+*/
+
+import Header from '../header/Header'
+import React from "react";
+import Balance from "./Balance";
+import IncomeList from "./IncomeList";
+import ExpenseList from "./ExpenseList";
+import AddTransaction from "./AddTransaction";
+import { GlobalContextProvider } from "../homecontext/GlobalState";
+import "./Home.css";
+
+const Home = () => {
+  return (
+    <>
+    <Header></Header>
+    <GlobalContextProvider>
+      <div className="container-home">
+        <div className="app-wrapper-home">
+          <Balance />
+          <IncomeList />
+          <ExpenseList />
+          <AddTransaction />
+        </div>
+      </div>
+    </GlobalContextProvider>
+    </>
+  );
+};
+
+export default Home;

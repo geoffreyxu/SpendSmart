@@ -38,7 +38,7 @@ const BudgetList = ({ getBudgetId }) => {
       
       </div>
 
-      {/* <pre>{JSON.stringify(books, undefined, 2)}</pre>} */}
+      {/* <pre>{JSON.stringify(budget, undefined, 2)}</pre>} */}
       <Table striped bordered hover size="sm">
         <thead>
           <tr>

@@ -3,6 +3,7 @@ import Home from './components/home/Home'
 import Login from './components/forms/Login'
 import Signup from './components/forms/Signup'
 import Calc from './components/calc/Calc'
+import Cal from './components/cal/calendar'
 import Plans from './components/plans/Plans'
 import Profile from './components/profile/Profile'
 import Layout from './components/Layout';
@@ -25,6 +26,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/home' element={<Home />}></Route>
     <Route path='/plans' element={<Plans />}></Route>
     <Route path='/Calc' element={<Calc />}></Route>
+    <Route path='/Cal' element={<Cal />}></Route>
     <Route path='/Profile' element={<Profile />}></Route>
   </Route>
 ));
