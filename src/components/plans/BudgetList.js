@@ -1,11 +1,15 @@
+/*
 import React, { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import BudgetDataService from "./budget.services";
+import { useAuth } from '../../context/UserAuthContext'
 import "./Plans.css";
 
 
 const BudgetList = ({ getBudgetId }) => {
   const [budget, setBudget] = useState([]);
+  const { currentUser } = useAuth();
+
   useEffect(() => {
     getBudget();
   }, []);
@@ -38,7 +42,100 @@ const BudgetList = ({ getBudgetId }) => {
       
       </div>
 
-      {/* <pre>{JSON.stringify(budget, undefined, 2)}</pre>} */}
+      
+      <Table striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Budget Name</th>
+            <th>Budget Amount</th>
+            <th>Budget Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {budget.map((doc, index) => {
+            if (doc.userId !== currentUser.uid) {
+                return null;
+            }
+            return (
+              <tr key={doc.id}>
+                <td>{index + 1}</td>
+                <td>{doc.name}</td>
+                <td>{doc.amount}</td>
+                <td>{doc.date}</td>
+                <td>
+                  <Button
+                    variant="secondary"
+                    className="edit"
+                    onClick={(e) => getBudgetId(doc.id)}
+                  >
+                    Edit
+                  </Button>
+                  <Button
+                    variant="danger"
+                    className="delete"
+                    onClick={(e) => deleteHandler(doc.id)}
+                  >
+                    Delete
+                  </Button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
+    </>
+  );
+};
+
+export default BudgetList;
+*/
+import React, { useEffect, useState } from "react";
+import { Table, Button } from "react-bootstrap";
+import BudgetDataService from "./budget.services";
+import "./Plans.css";
+import { useAuth } from "../../context/UserAuthContext"; // add the AuthContext
+
+const BudgetList = ({ getBudgetId }) => {
+  const { currentUser } = useAuth(); // get the current user from the AuthContext
+  const [budget, setBudget] = useState([]);
+
+  useEffect(() => {
+    if (currentUser) { // check if currentUser is defined before fetching budgets
+      getBudget();
+    }
+  }, [currentUser]); // make sure to add currentUser to the dependency array
+
+  const getBudget = async () => {
+    if (currentUser) { // check if currentUser is defined before fetching budgets
+      const data = await BudgetDataService.getAllBudgets();
+      console.log(data.docs);
+      setBudget(
+        data.docs
+          .map((doc) => ({ ...doc.data(), id: doc.id }))
+          .filter((b) => b.uid === currentUser.uid) // filter budgets by uid
+      );
+    }
+  };
+
+  const deleteHandler = async (id) => {
+    await BudgetDataService.deleteBudget(id);
+    getBudget();
+  };
+
+  return (
+    <>
+      <div className="mb-2">
+        <Button variant="dark edit" onClick={getBudget}>
+          Refresh List
+        </Button>
+      </div>
+
+      <div ClassName="search-bar">
+        <div>search bar</div>
+      </div>
+
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
