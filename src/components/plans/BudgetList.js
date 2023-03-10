@@ -25,9 +25,11 @@ const BudgetList = ({ getBudgetId }) => {
   }, []);
 
   const getBudget = async () => {
+    const userId = auth.currentUser.uid; // get the current user's ID
     const data = await BudgetDataService.getAllBudgets();
     console.log(data.docs);
-    setBudget(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setBudget(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      .filter((budget) => budget.userId === userId)); // filter budgets based on userId
   };
 
   const deleteHandler = async (id) => {

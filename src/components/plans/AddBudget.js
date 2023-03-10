@@ -5,6 +5,7 @@ import BudgetDataService from "./budget.services";
 import { useAuth } from '../../context/UserAuthContext'
 import "./Plans.css";
 import { db, auth } from '../../firebase.config';
+import { AlignVerticalBottom } from "@mui/icons-material";
 
 
 
@@ -28,7 +29,7 @@ const AddBudget = ({ id, setBudgetId }) => {
       name,
       amount,
       date,
-      
+      userId: auth.currentUser.uid,
     };
     console.log(newBudget);
 
@@ -76,13 +77,13 @@ const AddBudget = ({ id, setBudgetId }) => {
     <>
       <div className="p-4 box">
         {message?.msg && (
-          <Alert
+          <alert
             variant={message?.error ? "danger" : "success"}
             dismissible
             onClose={() => setMessage("")}
           >
             {message?.msg}
-          </Alert>
+          </alert>
         )}
 
         <Form onSubmit={handleSubmit}>
@@ -139,4 +140,3 @@ const AddBudget = ({ id, setBudgetId }) => {
 };
 
 export default AddBudget;
-
