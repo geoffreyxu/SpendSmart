@@ -86,42 +86,39 @@ const AddBudget = ({ id, setBudgetId }) => {
           </alert>
         )}
 
-        <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBudgetName">
-            <InputGroup>
-              <InputGroup.Text id="formBudgetName">B</InputGroup.Text>
-              <Form.Control
+        <form onSubmit={handleSubmit}>
+          
+            <label>
+              Budget:
+              <input 
                 type="text"
                 placeholder="Budget Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              />
-            </InputGroup>
-          </Form.Group>
+                />
+              </label>
+            
+          
 
-          <Form.Group className="mb-3" controlId="formBudgetAmount">
-            <InputGroup>
-              <InputGroup.Text id="formBudgetAmount">A</InputGroup.Text>
-              <Form.Control
+          <label>
+            Amount:
+            <input
                 type="text"
                 placeholder="Budget Amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
-            </InputGroup>
-          </Form.Group>
+              </label>
 
-          <Form.Group className="mb-3" controlId="formBudgetDate">
-            <InputGroup>
-              <InputGroup.Text id="formBudgetDate">D</InputGroup.Text>
-              <Form.Control
+          <label>
+            Date 
+            <input
                 type="text"
-                placeholder="Date in form D/M/Y - D/M/Y"
+                placeholder="Date in in form mm/dd/yyy"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
               />
-            </InputGroup>
-          </Form.Group>
+              </label>
           
 
 
@@ -129,11 +126,11 @@ const AddBudget = ({ id, setBudgetId }) => {
 
           
           <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit" >
-              Add
-            </Button>
+            <button variant="primary" type="Submit" >
+              Add/Update
+            </button>
           </div>
-        </Form>
+        </form>
       </div>
     </>
   );
