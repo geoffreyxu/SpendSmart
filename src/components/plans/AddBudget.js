@@ -1,8 +1,12 @@
+import { FirebaseError } from "@firebase/util";
 import React, { useState, useEffect } from "react";
 import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
 import BudgetDataService from "./budget.services";
-
+import { useAuth } from '../../context/UserAuthContext'
 import "./Plans.css";
+import { db, auth } from '../../firebase.config';
+
+
 
 const AddBudget = ({ id, setBudgetId }) => {
   const [name, setName] = useState("");
@@ -66,6 +70,8 @@ const AddBudget = ({ id, setBudgetId }) => {
       editHandler();
     }
   }, [id]);
+
+  
   return (
     <>
       <div className="p-4 box">
@@ -122,8 +128,8 @@ const AddBudget = ({ id, setBudgetId }) => {
 
           
           <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
-              Add/ Update
+            <Button variant="primary" type="Submit" >
+              Add
             </Button>
           </div>
         </Form>
@@ -133,3 +139,4 @@ const AddBudget = ({ id, setBudgetId }) => {
 };
 
 export default AddBudget;
+

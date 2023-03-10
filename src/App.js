@@ -1,5 +1,6 @@
 import React from 'react'
 import Home from './components/home/Home'
+import HomeTest from './components/hometest/hometest'
 import Login from './components/forms/Login'
 import Signup from './components/forms/Signup'
 import Calc from './components/calc/Calc'
@@ -24,6 +25,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route index element={<Login />}></Route>
     <Route path='/Signup' element={<Signup />}></Route>
     <Route path='/home' element={<Home />}></Route>
+    <Route path='/hometest' element={<HomeTest />}></Route>
     <Route path='/plans' element={<Plans />}></Route>
     <Route path='/Calc' element={<Calc />}></Route>
     <Route path='/Cal' element={<Cal />}></Route>

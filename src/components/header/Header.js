@@ -50,6 +50,17 @@ const Header = () => {
                <li>
                   <NavLink
                      className="active"
+                     to="/HomeTest"
+                     style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                     }
+                  >
+                     HomeTest
+                  </NavLink>
+               </li>
+               <li>
+                  <NavLink
+                     className="active"
                      to="/Calc"
                      style={({ isActive }) =>
                         isActive ? activeStyle : undefined
