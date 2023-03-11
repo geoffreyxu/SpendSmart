@@ -1,11 +1,13 @@
-
+import React from 'react'
+import './balance.css'
     
-    
-/*
 
+function Balance() {
 return (
     <div className="balance-home">
+        <div className="balance-header">
       <h2>Your Balance</h2>
+      </div>
       <h3>${}</h3>
       <div className="income-expense-home">
         <div className="plus-home">
@@ -19,5 +21,6 @@ return (
       </div>
     </div>
   );
-};*/
+};
+export default Balance;
 

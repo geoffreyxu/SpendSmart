@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import "./hometest.css"
 import ExpenseDataService from "./expense.services";
 import { useAuth } from '../../context/UserAuthContext'
-
+import "./expenselist.css"
 import { db, auth } from "../../firebase.config";
 import {
   collection,
@@ -42,7 +42,9 @@ const ExpenseList = ({ getExpenseId }) => {
   return (
     <>
 
-<div className="balance-home">
+
+{/*<div className="balance-hometest">
+    
       <h2>Your Balance</h2>
       <h3>${}</h3>
       <div className="income-expense-home">
@@ -55,18 +57,20 @@ const ExpenseList = ({ getExpenseId }) => {
           <p>-${}</p>
         </div>
       </div>
-    </div>
+      
+  </div>*/}
   
-   
+  <div className="list-container">
+      <div className="expenselist">
       <div className="mb-2">
-        <button variant="dark edit" onClick={getExpense}>
-          Refresh List
+        <button variant="primary" type="Submit" onClick={getExpense}>
+          Refresh Expenses
         </button>
       </div>
 
 
 
-      {/* <pre>{JSON.stringify(books, undefined, 2)}</pre>} */}
+    
       <table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -106,6 +110,9 @@ const ExpenseList = ({ getExpenseId }) => {
           })}
         </tbody>
       </table>
+      </div>
+      </div>
+      
     </>
   );
 };

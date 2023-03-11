@@ -77,48 +77,57 @@ const AddBudget = ({ id, setBudgetId }) => {
     <>
       <div className="p-4 box">
         {message?.msg && (
-          <alert
+          <Alert
             variant={message?.error ? "danger" : "success"}
             dismissible
             onClose={() => setMessage("")}
           >
             {message?.msg}
-          </alert>
+          </Alert>
         )}
-
-        <form onSubmit={handleSubmit}>
-          
-            <label>
-              Budget:
-              <input 
+        <div className="calc-header-font">
+            Budget Planner
+            </div>
+            <div className="calc-font-small">
+            Create future budgets to help stay organized as you spend.</div>
+        <Form onSubmit={handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBudgetName">
+            <InputGroup>
+            <InputGroup.Text id="formBudgetName">B</InputGroup.Text>
+              <Form.Control
                 type="text"
                 placeholder="Budget Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 />
-              </label>
+              </InputGroup>
+          </Form.Group>
             
           
 
-          <label>
-            Amount:
-            <input
+          <Form.Group className="mb-3" controlId="formBudgetAmount">
+            <InputGroup>
+              <InputGroup.Text id="formBudgetAmount">A</InputGroup.Text>
+              <Form.Control
                 type="text"
                 placeholder="Budget Amount"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
-              </label>
+               </InputGroup>
+          </Form.Group>
 
-          <label>
-            Date 
-            <input
+          <Form.Group className="mb-3" controlId="formBudgetDate">
+            <InputGroup>
+              <InputGroup.Text id="formBudgetDate">D</InputGroup.Text>
+              <Form.Control
                 type="text"
                 placeholder="Date in in form mm/dd/yyy"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
               />
-              </label>
+              </InputGroup>
+          </Form.Group>
           
 
 
@@ -126,11 +135,11 @@ const AddBudget = ({ id, setBudgetId }) => {
 
           
           <div className="d-grid gap-2">
-            <button variant="primary" type="Submit" >
+            <Button variant="primary" type="Submit" >
               Add/Update
-            </button>
+            </Button>
           </div>
-        </form>
+        </Form>
       </div>
     </>
   );

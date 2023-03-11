@@ -47,23 +47,14 @@ function HomeTest() {
     <>
     <Header></Header>
     
-    
-      <Container style={{width : "400px"}}>
-        <Row>
-          <Col>
+            <Balance/>
             <AddExpense id={expenseId} setExpenseId={setExpenseId} />
             <AddIncome id={incomeId} setIncomeId={setIncomeId} />
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row>
-          <Col>
+          
+        
             <ExpenseList getExpenseId={getExpenseIdHandler} />
             <IncomeList getIncomeId={getIncomeIdHandler} />
-          </Col>
-        </Row>
-      </Container>
+          
     </>
   );
 }
