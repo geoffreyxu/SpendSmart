@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Table, Button } from "react-bootstrap";
 import BudgetDataService from "./budget.services";
 import { useAuth } from '../../context/UserAuthContext'
 import "./Plans.css";
@@ -43,15 +43,15 @@ const BudgetList = ({ getBudgetId }) => {
     <>
    
       <div className="mb-2">
-        <button variant="dark edit" onClick={getBudget}>
+        <Button variant="dark edit" onClick={getBudget}>
           Refresh List
-        </button>
+        </Button>
       </div>
 
 
 
       {/* <pre>{JSON.stringify(books, undefined, 2)}</pre>} */}
-      <table striped bordered hover size="sm">
+      <Table striped bordered hover size="sm">
         <thead>
           <tr>
             <th>#</th>
@@ -70,26 +70,26 @@ const BudgetList = ({ getBudgetId }) => {
                 <td>{doc.amount}</td>
                 <td>{doc.date}</td>
                 <td>
-                  <button
+                  <Button
                     variant="secondary"
                     className="edit"
                     onClick={(e) => getBudgetId(doc.id)}
                   >
                     Edit
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     variant="danger"
                     className="delete"
                     onClick={(e) => deleteHandler(doc.id)}
                   >
                     Delete
-                  </button>
+                  </Button>
                 </td>
               </tr>
             );
           })}
         </tbody>
-      </table>
+      </Table>
     </>
   );
 };

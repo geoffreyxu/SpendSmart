@@ -26,7 +26,7 @@ const Header = () => {
 
             <Link
                className="logo"
-               to="/home"
+               to="/HomeTest"
 
             >
                BudgetApp
@@ -36,17 +36,7 @@ const Header = () => {
             <ul className='ul'>
                <li>
                </li>
-               <li>
-                  <NavLink
-                     className="active"
-                     to="/Home"
-                     style={({ isActive }) =>
-                        isActive ? activeStyle : undefined
-                     }
-                  >
-                     Home
-                  </NavLink>
-               </li>
+               
                <li>
                   <NavLink
                      className="active"
@@ -55,7 +45,7 @@ const Header = () => {
                         isActive ? activeStyle : undefined
                      }
                   >
-                     HomeTest
+                     Home
                   </NavLink>
                </li>
                <li>

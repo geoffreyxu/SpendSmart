@@ -75,6 +75,8 @@ const AddIncome = ({ id, setIncomeId }) => {
   return (
 
     <>
+    <div className="transaction-container">
+    <div className="add-income">
       <div className="p-4 box">
         {message?.msg && (
           <alert
@@ -125,6 +127,8 @@ const AddIncome = ({ id, setIncomeId }) => {
             </button>
           </div>
         </form>
+      </div>
+      </div>
       </div>
     </>
   );

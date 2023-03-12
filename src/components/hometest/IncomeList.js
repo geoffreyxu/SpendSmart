@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import {Button} from "react-bootstrap"
 import IncomeDataService from "./income.services";
 import { useAuth } from '../../context/UserAuthContext'
 import { db, auth } from "../../firebase.config";
@@ -50,17 +50,18 @@ const IncomeList = ({ getIncomeId }) => {
   
   return (
     <>
-   
+   <div className="list-container">
+   <div className="incomelist">
       <div className="mb-2">
-        <button variant="dark edit" onClick={getIncome}>
-          Refresh List
+        <button variant="primary" type="Submit" onClick={getIncome}>
+          Refresh Income
         </button>
       </div>
 
 
 
-      {/* <pre>{JSON.stringify(books, undefined, 2)}</pre>} */}
-      <table striped bordered hover size="sm">
+      
+      <table striped bordered hover size="sm" >
         <thead>
           <tr>
             <th>#</th>
@@ -99,6 +100,9 @@ const IncomeList = ({ getIncomeId }) => {
           })}
         </tbody>
       </table>
+      </div>
+      </div>
+      
     </>
   );
 };

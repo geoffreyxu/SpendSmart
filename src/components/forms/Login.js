@@ -33,7 +33,7 @@ const Login = () => {
     }
     try {
       await UserLogin(email, password)
-      navigate("/home")
+      navigate("/HomeTest")
     } catch (error) {
 
       if (error.code == "auth/user-not-found") {

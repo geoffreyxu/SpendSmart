@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Alert, InputGroup, Button, ButtonGroup } from "react-bootstrap";
 import ExpenseDataService from "./expense.services";
 import { useAuth } from '../../context/UserAuthContext'
-
+import "./expense.css"
 import { db, auth } from '../../firebase.config';
 import { AlignVerticalBottom } from "@mui/icons-material";
 
@@ -75,6 +75,8 @@ const AddExpense = ({ id, setExpenseId }) => {
   
   return (
     <>
+    <div className="transaction-container">
+    <div className="add-expense">
       <div className="p-4 box">
         {message?.msg && (
           <alert
@@ -131,6 +133,8 @@ const AddExpense = ({ id, setExpenseId }) => {
             </button>
           </div>
         </form>
+      </div>
+      </div>
       </div>
     </>
   );
