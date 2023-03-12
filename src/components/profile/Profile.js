@@ -303,8 +303,8 @@ const Profile = () => {
                     </div>
                 </form>
                 <div className='heading'>
-                    <h2 className='h2'>Hello!</h2>
-                    <h6 className='h6'>This is my profile.</h6>
+                    <h2 className='h2'>Your Profile</h2>
+                    <h6 className='h6'>Customize your profile!</h6>
                 </div>
                 <div className='innerCintainer'>
                     <div className='box1'>

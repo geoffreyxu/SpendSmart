@@ -19,10 +19,11 @@ import {
 
 const IncomeList = ({ getIncomeId }) => {
   const [income, setIncome] = useState([]);
+  const [totalIncome, getTotalIncome] = useState(0);
   useEffect(() => {
     getIncome();
   }, []);
-
+/*
   const getIncome = async () => {
     const userId = auth.currentUser.uid; // get the current user's ID
     const data = await IncomeDataService.getAllIncome();
@@ -30,6 +31,22 @@ const IncomeList = ({ getIncomeId }) => {
     setIncome(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       .filter((income) => income.userId === userId)); // filter budgets based on userId
   };
+*/
+const getIncome = async () => {
+  const userId = auth.currentUser.uid; // get the current user's ID
+  const data = await IncomeDataService.getAllIncome();
+  console.log(data.docs);
+  setIncome(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    .filter((income) => income.userId === userId)); // filter budgets based on userId
+  const filteredIncomes = data.docs
+    .map((doc) => ({ ...doc.data(), id: doc.id }))
+    .filter((income) => income.userId === auth.currentUser.uid);
+  const total = filteredIncomes.reduce(
+    (accumulator, income) => accumulator + parseFloat(income.amount),
+    0
+  );
+  getTotalIncome(total);
+};
 
   const deleteHandler = async (id) => {
     await IncomeDataService.deleteIncome(id);

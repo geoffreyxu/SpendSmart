@@ -63,7 +63,9 @@ const ExpenseList = ({ getExpenseId }) => {
   <div className="list-container">
       <div className="expenselist">
       <div className="mb-2">
-        <button variant="primary" type="Submit" onClick={getExpense}>
+        <button variant="primary" type="Submit" onClick={() => {
+          getExpense();
+          }}>
           Refresh Expenses
         </button>
       </div>
