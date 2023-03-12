@@ -40,9 +40,9 @@ events.forEach((event, index) => {
   function ColoredSquare({backgroundColor}) {
 
     const style = {
-      width: "20px",
-      height: "20px",
-      borderRadius: "50%",
+      width: "10px",
+      height: "30px",
+      //borderRadius: "50%",
       backgroundColor: backgroundColor
     };
   
@@ -58,7 +58,7 @@ function EventList({ events }) {
     <div className="event-list">
       {events.map((event) => (
         <div key={event.id} className="event">
-          <div className="event-time">{event.startTime} - {event.endTime}</div>
+          <div className="event-time">{event.Date}</div>
           <div className="event-title">{event.title}</div>
           <div className="event-value">{event.value}</div>
         </div>
@@ -180,8 +180,7 @@ function Calendar(){
 
   const isWithinEventRange = (event, date) => {
     const start = event.Date;
-    const end = event.Date;
-    return date >= start && date <= end;
+    return date === start;
   };
   
 
@@ -210,20 +209,19 @@ function Calendar(){
     const eventMap = {};
 
     events.forEach((event) => {
-      const startDate = new Date(event.Date);
-      const endDate = new Date(event.Date);
+      const thisDate = new Date(event.Date);
   
-      for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
-        const year = date.getFullYear();
-        const month = date.getMonth();
-        const day = date.getDate();
+     // if (let date = thisDate; date <= endDate; date.setDate(date.getDate() + 1)) 
+        const year = thisDate.getFullYear();
+        const month = thisDate.getMonth();
+        const day = thisDate.getDate();
   
         if (!eventMap[year]) eventMap[year] = {};
         if (!eventMap[year][month]) eventMap[year][month] = {};
         if (!eventMap[year][month][day]) eventMap[year][month][day] = [];
   
         eventMap[year][month][day].push(event);
-      }
+    
     });
 
 
@@ -260,7 +258,7 @@ function Calendar(){
         eventsForDay && eventsForDay.map((event) => {
           //coloring = colors[index];
           return (
-            <div key={event.id} className="event" style={{ marginRight: '8.75px' }}>
+            <div key={event.id} className="event" style={{ marginRight: '2px' }}>
                     <ColoredSquare backgroundColor = {event.color}/>
             </div>
           );
