@@ -80,13 +80,13 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
   };
 
 
-  const balance = totalIncome - totalExpense;
+  const balance = (totalIncome - totalExpense).toFixed(2);
   
   return (
     <>
 
 
-{/*<div className="balance-hometest">
+<div className="balance-hometest">
     
       <h2>Your Balance</h2>
       <h3>${balance}</h3>
@@ -101,7 +101,7 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
         </div>
       </div>
       
-  </div>*/}
+  </div>
   
   <div className="list-container">
       <div className="expenselist">
@@ -153,9 +153,11 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
           })}
         </tbody>
       </table>
+      <div className="expenselist">
       <div className="mb-2">
+
         <button variant="dark edit" onClick={getIncome}>
-          Refresh List
+          Refresh Income
         </button>
       </div>
 
@@ -203,7 +205,7 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
       </table>
       </div>
       </div>
-      
+      </div>
     </>
   );
 };

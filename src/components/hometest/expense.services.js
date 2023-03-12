@@ -16,7 +16,6 @@ import {
 const expenseCollectionRef = collection(db, "expenses");
 class ExpenseDataService {
   addExpense = (newExpense) => {
-    console.log("hey");
     return addDoc(expenseCollectionRef, newExpense);
   };
 

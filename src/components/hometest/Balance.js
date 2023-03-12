@@ -1,8 +1,9 @@
-
+import React from 'react'
+import './balance.css'
     
     
-/*
 
+function Balance() {
 return (
     <div className="balance-home">
         <div className="balance-header">
@@ -23,4 +24,3 @@ return (
   );
 };
 export default Balance;
-

@@ -47,12 +47,7 @@ function HomeTest() {
             <Balance/>
             <AddExpense id={expenseId} setExpenseId={setExpenseId} />
             <AddIncome id={incomeId} setIncomeId={setIncomeId} />
-          
-        
             <ExpenseList getExpenseId={getExpenseIdHandler} />
-          </Col>
-        </Row>
-      </Container>
     </>
   );
 }
