@@ -1,3 +1,4 @@
+
 .calendar {
   width: 100%;
   margin: 0 auto;
@@ -130,11 +131,78 @@
   font-weight: bold;
 }
 
+/*
 .popup button {
   position: absolute;
   top: 0px;
   right: 0px;
+}*/
+
+.pops {
+  background-color: #fff;
+  width: 600px;
+  max-width: 95%;
+  height: 250px;
+  max-height: 90%;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+}
+
+.popser {
+  display: flex;
+  flex-direction: column;
+}
+
+.pops input[type="text"] {
+  margin-top: 20px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+}
+
+.popup-submit {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 75px;
+  height: 25px;
+}
+
+.plusBut {
+  position: absolute;
+  bottom: 40px;
+  right: 100px;
+  width: 100px;
+  height: 50px;
+  background-color: #4285f4;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  
 }
 
 
+
+/*
+.event-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.event-indicator-color {
+  width: 10px;
+  height: 10px;
+  margin: 2px;
+  border-radius: 50%;
+}*/
 
