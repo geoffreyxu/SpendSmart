@@ -29,7 +29,7 @@ const VerifyEmail = () => {
             placeholder="Enter Code Here" value={code} name='FullName' onChange={e=>(setCode(e.target.value))} />
 
             <p style={{color:"#fff", fontSize:"10px", marginTop:'3px',letterSpacing:"1px"}}>
-                Please check your email you receve A verification code
+                Please check your email to recieve a verification code.
             </p>
         </div>  
         <div className="inputfield">
