@@ -19,7 +19,7 @@ const Home = () => {
 
 export default Home
 */
-
+/*
 import Header from '../header/Header'
 import React from "react";
 import Balance from "./Balance";
@@ -48,3 +48,4 @@ const Home = () => {
 };
 
 export default Home;
+*/
