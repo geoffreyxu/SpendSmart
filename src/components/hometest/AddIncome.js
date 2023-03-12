@@ -73,6 +73,7 @@ const AddIncome = ({ id, setIncomeId }) => {
 
   
   return (
+
     <>
       <div className="p-4 box">
         {message?.msg && (
@@ -97,7 +98,6 @@ const AddIncome = ({ id, setIncomeId }) => {
                 />
               </label>
             
-          
 
           <label>
             Amount:
@@ -118,12 +118,7 @@ const AddIncome = ({ id, setIncomeId }) => {
                 onChange={(e) => setDate(e.target.value)}
               />
               </label>
-          
 
-
-
-
-          
           <div className="d-grid gap-2">
             <button variant="primary" type="Submit" >
               Add/Update

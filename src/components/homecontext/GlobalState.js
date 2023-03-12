@@ -33,6 +33,7 @@ export const GlobalContextProvider = ({ children }) => {
   };
 
   const addIncome = incomeTransaction => {
+    console.log("Adding income", incomeTransaction)
     dispatch({
       type: "ADD_INCOME",
       payload: incomeTransaction
@@ -40,6 +41,7 @@ export const GlobalContextProvider = ({ children }) => {
   };
 
   const addExpense = expenseTransaction => {
+    console.log("Adding expense", expenseTransaction)
     dispatch({
       type: "ADD_EXPENSE",
       payload: expenseTransaction
