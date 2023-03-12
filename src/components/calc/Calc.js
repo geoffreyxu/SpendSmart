@@ -110,7 +110,7 @@ function Calc() {
                     
                         {amounts.map((amount, index) => (
                             <li key={index}>
-                                {categories.split(',')[index]}: ${amount}
+                                {categories.split(',')[index]}: ${amount.toFixed(2)}
                             </li>
                         ))}
                     
