@@ -3,6 +3,7 @@ import {Button} from "react-bootstrap"
 import IncomeDataService from "./income.services";
 import { useAuth } from '../../context/UserAuthContext'
 import { db, auth } from "../../firebase.config";
+import "./expenselist.css";
 import {
   collection,
   getDocs,
@@ -51,16 +52,12 @@ const IncomeList = ({ getIncomeId }) => {
   return (
     <>
    <div className="list-container">
-   <div className="incomelist">
-      <div className="mb-2">
+     <div className="incomelist">
+     <div className="mb-2">
         <button variant="primary" type="Submit" onClick={getIncome}>
           Refresh Income
         </button>
       </div>
-
-
-
-      
       <table striped bordered hover size="sm" >
         <thead>
           <tr>
@@ -101,8 +98,7 @@ const IncomeList = ({ getIncomeId }) => {
         </tbody>
       </table>
       </div>
-      </div>
-      
+      </div>     
     </>
   );
 };

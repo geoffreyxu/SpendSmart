@@ -52,6 +52,7 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
     await IncomeDataService.deleteIncome(id);
     getIncome();
   };
+
   useEffect(() => {
     getExpense();
   }, []);
@@ -86,7 +87,7 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
     <>
 
 
-<div className="balance-hometest">
+{/*<div className="balance-hometest">
     
       <h2>Your Balance</h2>
       <h3>${balance}</h3>
@@ -101,7 +102,7 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
         </div>
       </div>
       
-  </div>
+  </div>*/}
   
   <div className="list-container">
       <div className="expenselist">
@@ -110,10 +111,6 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
           Refresh Expenses
         </button>
       </div>
-
-
-
-    
       <table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -153,57 +150,6 @@ const ExpenseList = ({ getExpenseId, getIncomeId }) => {
           })}
         </tbody>
       </table>
-      <div className="expenselist">
-      <div className="mb-2">
-
-        <button variant="dark edit" onClick={getIncome}>
-          Refresh Income
-        </button>
-      </div>
-
-
-
-      {/* <pre>{JSON.stringify(books, undefined, 2)}</pre>} */}
-      <table striped bordered hover size="sm">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Income Name</th>
-            <th>Income Amount</th>
-            <th>Income Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {income.map((doc, index) => {
-            return (
-              <tr key={doc.id}>
-                <td>{index + 1}</td>
-                <td>{doc.name}</td>
-                <td>{doc.amount}</td>
-                <td>{doc.date}</td>
-                <td>
-                  <button
-                    variant="secondary"
-                    className="edit"
-                    onClick={(e) => getIncomeId(doc.id)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    variant="danger"
-                    className="delete"
-                    onClick={(e) => deleteHandlerInc(doc.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      </div>
       </div>
       </div>
     </>

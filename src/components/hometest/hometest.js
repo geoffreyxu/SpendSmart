@@ -36,10 +36,10 @@ function HomeTest() {
     setExpenseId(id);
   };
 
-  /*const getIncomeIdHandler = (id) => {
+  const getIncomeIdHandler = (id) => {
     console.log("The ID of document to be edited: ", id);
     setIncomeId(id);
-  };*/
+  };
   return (
     <>
     <Header></Header>
@@ -48,6 +48,7 @@ function HomeTest() {
             <AddExpense id={expenseId} setExpenseId={setExpenseId} />
             <AddIncome id={incomeId} setIncomeId={setIncomeId} />
             <ExpenseList getExpenseId={getExpenseIdHandler} />
+            <IncomeList getIncomeId={getIncomeIdHandler} />
     </>
   );
 }
