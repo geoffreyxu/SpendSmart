@@ -3,6 +3,8 @@ import {Button} from "react-bootstrap"
 import IncomeDataService from "./income.services";
 import { useAuth } from '../../context/UserAuthContext'
 import { db, auth } from "../../firebase.config";
+import "./expenselist.css";
+
 import {
   collection,
   getDocs,
@@ -30,6 +32,14 @@ const IncomeList = ({ getIncomeId }) => {
     console.log(data.docs);
     setIncome(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       .filter((income) => income.userId === userId)); // filter budgets based on userId
+    const filteredIncomes = data.docs
+      .map((doc) => ({ ...doc.data(), id: doc.id }))
+      .filter((income) => income.userId === auth.currentUser.uid);
+    const total = filteredIncomes.reduce(
+      (accumulator, income) => accumulator + parseFloat(income.amount),
+      0
+    );
+    getTotalIncome(total);
   };
 */
 const getIncome = async () => {
@@ -58,16 +68,12 @@ const getIncome = async () => {
   return (
     <>
    <div className="list-container">
-   <div className="incomelist">
-      <div className="mb-2">
+     <div className="incomelist">
+     <div className="mb-2">
         <button variant="primary" type="Submit" onClick={getIncome}>
           Refresh Income
         </button>
       </div>
-
-
-
-      
       <table striped bordered hover size="sm" >
         <thead>
           <tr>
@@ -108,8 +114,7 @@ const getIncome = async () => {
         </tbody>
       </table>
       </div>
-      </div>
-      
+      </div>     
     </>
   );
 };

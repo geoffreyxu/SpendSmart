@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./hometest.css"
 import ExpenseDataService from "./expense.services";
+import IncomeDataService from "./income.services";
 import { useAuth } from '../../context/UserAuthContext'
 import "./expenselist.css"
 import { db, auth } from "../../firebase.config";
+import Balance from "./Balance";
+import IncomeList from "./IncomeList"
+
 import {
   collection,
   getDocs,
@@ -18,8 +22,37 @@ import {
 
 
 
-const ExpenseList = ({ getExpenseId }) => {
+const ExpenseList = ({ getExpenseId, getIncomeId }) => {
   const [expense, setExpense] = useState([]);
+  const [totalExpense, getTotalExpense] = useState(0);
+  const [income, setIncome] = useState([]);
+  const [totalIncome, getTotalIncome] = useState(0);
+
+  useEffect(() => {
+    getIncome();
+  }, []);
+
+  const getIncome = async () => {
+    const userId = auth.currentUser.uid; // get the current user's ID
+    const data = await IncomeDataService.getAllIncome();
+    console.log(data.docs);
+    setIncome(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+      .filter((income) => income.userId === userId)); // filter budgets based on userId
+    const filteredIncomes = data.docs
+      .map((doc) => ({ ...doc.data(), id: doc.id }))
+      .filter((income) => income.userId === auth.currentUser.uid);
+    const total = filteredIncomes.reduce(
+      (accumulator, income) => accumulator + parseFloat(income.amount),
+      0
+    );
+    getTotalIncome(total);
+  };
+
+  const deleteHandlerInc = async (id) => {
+    await IncomeDataService.deleteIncome(id);
+    getIncome();
+  };
+
   useEffect(() => {
     getExpense();
   }, []);
@@ -30,14 +63,25 @@ const ExpenseList = ({ getExpenseId }) => {
     console.log(data.docs);
     setExpense(data.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
       .filter((expense) => expense.userId === userId)); // filter budgets based on userId
+    const filteredExpenses = data.docs
+      .map((doc) => ({ ...doc.data(), id: doc.id }))
+      .filter((expense) => expense.userId === auth.currentUser.uid);
+    const total = filteredExpenses.reduce(
+      (accumulator, expense) => accumulator + parseFloat(expense.amount),
+      0
+    );
+    getTotalExpense(total);
   };
 
-  const deleteHandler = async (id) => {
+
+
+  const deleteHandlerExp = async (id) => {
     await ExpenseDataService.deleteExpense(id);
     getExpense();
   };
 
 
+  const balance = (totalIncome - totalExpense).toFixed(2);
   
   return (
     <>
@@ -46,15 +90,15 @@ const ExpenseList = ({ getExpenseId }) => {
 {/*<div className="balance-hometest">
     
       <h2>Your Balance</h2>
-      <h3>${}</h3>
+      <h3>${balance}</h3>
       <div className="income-expense-home">
         <div className="plus-home">
           <h3>Income</h3>
-          <p>+${}</p>
+          <p>+${totalIncome}</p>
         </div>
         <div className="minus-home">
           <h3>Expenses</h3>
-          <p>-${}</p>
+          <p>-${totalExpense}</p>
         </div>
       </div>
       
@@ -69,10 +113,6 @@ const ExpenseList = ({ getExpenseId }) => {
           Refresh Expenses
         </button>
       </div>
-
-
-
-    
       <table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -102,7 +142,7 @@ const ExpenseList = ({ getExpenseId }) => {
                   <button
                     variant="danger"
                     className="delete"
-                    onClick={(e) => deleteHandler(doc.id)}
+                    onClick={(e) => deleteHandlerExp(doc.id)}
                   >
                     Delete
                   </button>
@@ -114,7 +154,6 @@ const ExpenseList = ({ getExpenseId }) => {
       </table>
       </div>
       </div>
-      
     </>
   );
 };

@@ -73,6 +73,7 @@ const AddIncome = ({ id, setIncomeId }) => {
 
   
   return (
+
     <>
     <div className="transaction-container">
     <div className="add-income">
@@ -99,7 +100,6 @@ const AddIncome = ({ id, setIncomeId }) => {
                 />
               </label>
             
-          
 
           <label>
             Amount:
@@ -120,12 +120,7 @@ const AddIncome = ({ id, setIncomeId }) => {
                 onChange={(e) => setDate(e.target.value)}
               />
               </label>
-          
 
-
-
-
-          
           <div className="d-grid gap-2">
             <button variant="primary" type="Submit" >
               Add/Update

@@ -1,4 +1,5 @@
 import { db, auth } from '../../firebase.config';
+
 import {
   collection,
   getDocs,
@@ -36,6 +37,10 @@ class ExpenseDataService {
     const expenseDoc = doc(db, "expenses", id);
     return getDoc(expenseDoc);
   };
+  getExpenses = (id) => {
+    return
+
+  }
 }
 
 export default new ExpenseDataService();
