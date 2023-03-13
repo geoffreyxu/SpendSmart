@@ -207,34 +207,7 @@ const Profile = () => {
                             <h2 className='h2' style={{ fontSize: "50px" }}>Update Your Profile!</h2>
                         </div>
                         <div className='innerCintainer'>
-                            <div className='box1'>
-                                <div className='imageconatiner'>
-                                    {!image ? (<label className='imagebox'>
-                                        <div className='icons'>
-                                            <input
-                                                type="file"
-                                                name="imageurl"
-                                                style={{ visibility: "hidden" }}
-                                                accept="image/*"
-                                                onChange={uploudImage}
-                                            ></input>
-                                            <CloudUploadIcon className='size' fontSize="large">
-                                            </CloudUploadIcon>
-                                        </div>
-                                    </label >) : (
-                                        <div className='imagebox'>
-                                            <img
-                                                src={image}
-                                                alt="uploaded image"
-                                                className="imagebox"
-                                            />
-                                            <button className='deleteButton' type='reset' onClick={removeimage}>
-                                                <DeleteIcon></DeleteIcon>
-                                            </button>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
+                            
                             <div className='box1 '>
                                 <div className='  innerBox1 '>
                                     <div>
@@ -307,9 +280,7 @@ const Profile = () => {
                     <h6 className='h6'>Customize your profile!</h6>
                 </div>
                 <div className='innerCintainer'>
-                    <div className='box1'>
-                        <img className='img' src={Userprofile?.imageurl || "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"} />
-                    </div>
+                    
                     <div className='box1 '>
                         <div className='innerBox'>
                             <div>

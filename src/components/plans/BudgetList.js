@@ -43,7 +43,7 @@ const BudgetList = ({ getBudgetId }) => {
     <>
    
       <div className="mb-2">
-        <Button variant="dark edit" onClick={getBudget}>
+        <Button variant="primary" onClick={getBudget}>
           Refresh List
         </Button>
       </div>

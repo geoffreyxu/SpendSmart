@@ -32,6 +32,7 @@
   }
   
   .calc-amount-head {
+    margin-top: 10px;
     margin-bottom: 16px;
     font-family: "Baloo Da 2", serif;
     font-size: 3rem;
