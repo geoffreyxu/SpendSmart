@@ -1,8 +1,22 @@
+
 import { AuthErrorCodes } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../../context/UserAuthContext'
 import './Signup.css'
+import { db, auth } from '../../firebase.config';
+import {
+    collection,
+    getDocs,
+    getDoc,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    doc,
+    where,
+    query,
+  } from "firebase/firestore";
+
 
 const Signup = () => {
     const navigate = useNavigate()
@@ -11,7 +25,8 @@ const Signup = () => {
     const [user, setUser] = useState({
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        occupation: ""
     })
     const UserHandler = (e) => {
         const { name, value } = e.target;
@@ -25,8 +40,8 @@ const Signup = () => {
 
     const SubmitHandler = async (e) => {
         e.preventDefault()
-        const { email, password, confirmPassword, FullName } = user
-        if (password == "" || confirmPassword == "" || email == "" || FullName == "") {
+        const { email, password, confirmPassword, occupation, FullName } = user
+        if (password == "" || confirmPassword == "" || email == "" || occupation == "" || FullName == "") {
             setInterval(() => {
                 setError("")
             }, 5000)
@@ -47,7 +62,12 @@ const Signup = () => {
         else {
             try {
                 await SignUp(email, password)
-                alert("WellCome New User Create successfully")
+                const userDocRef = await addDoc(collection(db, 'users'), {
+                    email,
+                    password,
+                    occupation,
+                  });
+                alert("Welcome New User Created Successfully")
                 navigate('/')
             } catch (err) {
                 if (err.code === "auth/email-already-in-use") {
@@ -88,7 +108,9 @@ const Signup = () => {
                 <div className="inputfield-forms">
                     <input type="text" placeholder="Email" value={user.email} name='email' onChange={UserHandler} />
                 </div>
-
+                <div className="inputfield-forms">
+                    <input type="text" placeholder="Occupation" value={user.occupation} name='occupation' onChange={UserHandler} />
+                </div>
                 <div className="inputfield-forms">
                     <input type="password" placeholder="Password" value={user.password} name='password' onChange={UserHandler} />
                 </div>
