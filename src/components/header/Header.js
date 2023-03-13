@@ -29,7 +29,7 @@ const Header = () => {
                to="/HomeTest"
 
             >
-               BudgetApp
+               $pend$mart
             </Link>
          </div>
          <nav className='link'>

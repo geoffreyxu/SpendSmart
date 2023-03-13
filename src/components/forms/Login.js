@@ -59,7 +59,7 @@ const Login = () => {
   }
   return (
     <>
-    <div className="forms-title">Welcome to&nbsp;<span class="colored-word">SpendSmart!</span> </div>
+    <div className="forms-title">Welcome to&nbsp;<span class="colored-word">$pend$mart!</span> </div>
     
     <div className="forms-smaller">
       A budget app that helps you keep track of your expenses, set financial goals, and provide a breakdown on where your money is going.
