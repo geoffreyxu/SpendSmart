@@ -8,7 +8,7 @@ function Calendar(){
   const events = [
     {
       title: 'Meeting',
-      date: new Date(2023, 2, 5),
+      date: new Date(2023, 3, 5),
       value: 100
     },
     {
@@ -18,7 +18,7 @@ function Calendar(){
     },
     {
       title: 'Presentation',
-      date: new Date(2023, 2, 28),
+      date: new Date(2023, 3, 20),
       value: 30.94
     },
   ]; 
@@ -78,6 +78,58 @@ function Calendar(){
     setShowPopup(false);
   };
 
+  function ColoredSquare({backgroundColor, text}) {
+    const style = {
+      width: "20px",
+      height: "20px",
+      borderRadius: "50%",
+      backgroundColor: backgroundColor,
+      position: "relative",
+      top: "-37.5%",
+      left: "-50%",
+    };
+  
+    const textStyle = {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      fontSize: "14px",
+      color: "white",
+    };
+  
+    return (
+      <div style={style}>
+        <div style={textStyle}>{text}</div>
+      </div>
+    );
+  }
+
+  const renderSquare = (day, month, year) => {
+    let test = [];
+    
+    for (let i = 0; i < events.length; i++){
+      if (events[i].date.getFullYear() === year && events[i].date.getMonth() === month + 1 && events[i].date.getDate() === day){
+        test.push(events[i].type)
+      }
+    }
+
+    if (test.length > 0)
+    {
+      return (
+        
+        <ColoredSquare backgroundColor="red" text={test.length} />
+  
+      )
+    }
+    else
+    {
+      return null;
+    }
+
+  };
+
+
   const renderCalendar = () => {
     return (
       <div className="calendar">
@@ -111,7 +163,7 @@ function Calendar(){
           {days.map((day) => (
             <button key={day} className="day" onClick={() => handleDayClick(day)}>
               {day}
-              {/*renderSquare*/}
+              {renderSquare(day, month, year)}
             </button>
           ))}
           {blanksAfter.map((_, i) => <div key={`after-${i}`} className="blank"></div>)}
