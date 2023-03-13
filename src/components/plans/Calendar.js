@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Calendar.css'
 
 function Calendar(){
   const [date, setDate] = useState(new Date());
