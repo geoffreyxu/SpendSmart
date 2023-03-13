@@ -58,37 +58,41 @@ const Login = () => {
 
   }
   return (
-
-
-    <div className='box'>
+    <>
+    <div className="forms-title">Welcome to&nbsp;<span class="colored-word">SpendSmart!</span> </div>
+    
+    <div className="forms-smaller">
+      A budget app that helps you keep track of your expenses, set financial goals, and provide a breakdown on where your money is going.
+    </div>
+    <div className='box-forms'>
       {
 
-        err && <p className='error'>{err}</p>
+        err && <p className='error-forms'>{err}</p>
 
       }
-
-      <form onSubmit={SubmitHandler} className="form">
+      
+      <form onSubmit={SubmitHandler} className="form-forms">
         
         <h2>Login</h2>
   
 
-        <div className="inputfield">
+        <div className="inputfield-forms">
           <input type="email" placeholder="Email" value={user.email} name='email' onChange={UserHandler} />
         </div>
 
-        <div className="inputfield">
+        <div className="inputfield-forms">
           <input type="password" placeholder="Password" value={user.password} name='password' onChange={UserHandler} />
         </div>
 
-        <div className="inputfield">
+        <div className="inputfield-forms">
           <input type="submit" value="login" />
         </div>
-        <p className="forget">Don't have an account?   <Link to={"signup"} className="link">{"signup"}</Link></p>
-        <p className="forget">Forgot password? <Link className="link" to={"forget"}>reset it</Link></p>
+        <p className="forget-forms">Don't have an account?   <Link to={"signup"} className="link">{"signup"}</Link></p>
+        
       </form>
 
     </div>
-
+</>
   )
 }
 

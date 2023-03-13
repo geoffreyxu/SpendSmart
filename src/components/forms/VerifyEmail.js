@@ -18,13 +18,13 @@ const VerifyEmail = () => {
         }
       }
   return (
-    <div className='box'>
+    <div className='box-forms'>
     {
-            err && <p className='error'>{err}</p>
+            err && <p className='error-forms'>{err}</p>
     }
-    <form onSubmit={SubmitHandler} className="form">
+    <form onSubmit={SubmitHandler} className="form-forms">
         <h2>Verify Your Email</h2>
-        <div className="inputfield">
+        <div className="inputfield-forms">
             <input type="text"  
             placeholder="Enter Code Here" value={code} name='FullName' onChange={e=>(setCode(e.target.value))} />
 
@@ -32,10 +32,10 @@ const VerifyEmail = () => {
                 Please check your email to recieve a verification code.
             </p>
         </div>  
-        <div className="inputfield">
+        <div className="inputfield-forms">
             <input type="submit"  value={"Verify"}></input>
         </div>
-        <p className="forget">Already Have an account? <Link to={"/"} className="link">{"login"}</Link></p>
+        <p className="forget-forms">Already Have an account? <Link to={"/"} className="link">{"login"}</Link></p>
     </form>
 
 </div>

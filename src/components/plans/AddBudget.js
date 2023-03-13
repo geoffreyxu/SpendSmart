@@ -75,6 +75,7 @@ const AddBudget = ({ id, setBudgetId }) => {
   
   return (
     <>
+   
       <div className="p-4 box">
         {message?.msg && (
           <Alert
@@ -85,6 +86,7 @@ const AddBudget = ({ id, setBudgetId }) => {
             {message?.msg}
           </Alert>
         )}
+        
         <div className="calc-header-font">
             Budget Planner
             </div>
