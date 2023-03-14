@@ -4,11 +4,14 @@ import './Calendar.css'
 function Calendar(){
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
-  const [showPopup, setShowPopup] = useState(false);
+  const [selectedDate2, setSelectedDate2] = useState(null);
+  const [showCellPopup, setShowCellPopup] = useState(false);
+  const [showAddPopup, setShowAddPopup] = useState(false);
+
   const events = [
     {
       title: 'Meeting',
-      date: new Date(2023, 3, 5),
+      date: new Date(2023, 5, 5),
       value: 100
     },
     {
@@ -70,12 +73,19 @@ function Calendar(){
 
   const handleDayClick = (day) => {
     setSelectedDate(new Date(year, month, day));
-    setShowPopup(true);
+    setSelectedDate2(new Date(year, month, day))
+    setShowCellPopup(true);
   };
 
   const handlePopupClose = () => {
     setSelectedDate(null);
-    setShowPopup(false);
+    setSelectedDate2(null);
+    setShowCellPopup(false) || setShowAddPopup(false);
+  };
+
+  const handleAddClick = (year, month) => {
+    setSelectedDate(new Date(year, month, 1));
+    setShowAddPopup(true);
   };
 
   function ColoredSquare({backgroundColor, text}) {
@@ -168,25 +178,85 @@ function Calendar(){
           ))}
           {blanksAfter.map((_, i) => <div key={`after-${i}`} className="blank"></div>)}
         </div>
+        <button className="add-button" onClick={() => handleAddClick(year, month)}>+</button>
       </div>
     );
   };
   
-  const renderPopup = () => {
+  const renderCellPopup = () => {
     return (
       <div className="popup-overlay">
         <div className="popup">
           <button className="popup-close" onClick={handlePopupClose}>X</button>
-          <h3>{selectedDate.toLocaleDateString()}</h3>
+          <div className="select-container">
+            <select value={selectedDate.getMonth()} onChange={
+                (e) => setSelectedDate(new Date(selectedDate.getFullYear(), parseInt(e.target.value), selectedDate.getDate()))
+              }>
+              {monthNames.map((name, index) => (
+                <option key={index} value={index}>{name}</option>
+              ))}
+            </select>
+            <select value={selectedDate.getDate()} onChange={
+              (e) => setSelectedDate(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), parseInt(e.target.value)))
+              }>
+              {Array.from({length: daysInMonth(selectedDate.getFullYear(), selectedDate.getMonth())}, (_, i) => 1 + i).map((dayValue) => (
+                <option key={dayValue} value={dayValue}>{dayValue}</option>
+              ))}
+            </select>
+            <select value={selectedDate.getFullYear()} onChange={
+              (e) => setSelectedDate(new Date(parseInt(e.target.value), selectedDate.getMonth(), selectedDate.getDate()))
+              }>
+              {Array.from({length: 21}, (_, i) => selectedDate.getFullYear() - 10 + i).map((yearValue) => (
+                <option key={yearValue} value={yearValue}>{yearValue}</option>
+              ))}
+            </select>
+
+            {/* maybe space this out differently for scaling*/}
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+            <select value={selectedDate2.getMonth()} onChange={
+                (e) => setSelectedDate2(new Date(selectedDate2.getFullYear(), parseInt(e.target.value), selectedDate2.getDate()))
+              }>
+              {monthNames.map((name, index) => (
+                <option key={index} value={index}>{name}</option>
+              ))}
+            </select>
+            <select value={selectedDate2.getDate()} onChange={
+              (e) => setSelectedDate2(new Date(selectedDate2.getFullYear(), selectedDate2.getMonth(), parseInt(e.target.value)))
+              }>
+              {Array.from({length: daysInMonth(selectedDate2.getFullYear(), selectedDate2.getMonth())}, (_, i) => 1 + i).map((dayValue) => (
+                <option key={dayValue} value={dayValue}>{dayValue}</option>
+              ))}
+            </select>
+            <select value={selectedDate2.getFullYear()} onChange={
+              (e) => setSelectedDate2(new Date(parseInt(e.target.value), selectedDate2.getMonth(), selectedDate2.getDate()))
+              }>
+              {Array.from({length: 21}, (_, i) => selectedDate2.getFullYear() - 10 + i).map((yearValue) => (
+                <option key={yearValue} value={yearValue}>{yearValue}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </div>
     );
   };
+
+  const renderAddPopup = () => {
+    return (
+      <div className="popup-overlay">
+        <div className="popup">
+          <button className="popup-close" onClick={handlePopupClose}>X</button>
+        </div>
+      </div>
+    );
+  };
+
   
   return (
     <div className="calendar">
       {renderCalendar()}
-      {showPopup && renderPopup()}
+      {showCellPopup && renderCellPopup()}
+      {showAddPopup && renderAddPopup()}
     </div>
   );
 };
