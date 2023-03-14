@@ -6,6 +6,7 @@
   padding: 10px;
   border-radius: 5px;
   margin: 5px;
+  text-align: center;
 }
 
 .calendar {
@@ -40,6 +41,27 @@
   flex-grow: 1;
   height: 12vh;
 }
+
+.add-button {
+  position: absolute;
+  right: 4%;
+  bottom: 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: bottom;
+  color: #fafafa;
+  background-color: #33333380;
+  border-color: transparent;
+  flex-grow: 1;
+  height: 6%;
+  width: 6%;
+}
+
+.add-button:hover {
+  background-color: #333;
+}
+
 
 .header {
   display: flex;
@@ -83,6 +105,10 @@
   color: #fff;
 
 }
+.calendar-body > .blank {
+  border-bottom-color: transparent;
+}
+
 
 .calendar-body > .day:hover {
   background-color: #6aa2f8;
