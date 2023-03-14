@@ -25,6 +25,7 @@ import { Container, Navbar, Row, Col } from "react-bootstrap";
 import Header from '../header/Header'
 import AddBudget from "./AddBudget";
 import PlansLabel from "./PlansLabel"
+import SearchBar from "./SearchBar";
 import BudgetList from "./BudgetList";
 import { doc, getDoc, query, where, collection, getDocs } from "firebase/firestore";
 import { sendEmailVerification, getAuth, onAuthStateChanged } from 'firebase/auth'
@@ -42,10 +43,11 @@ function Plans() {
     <>
     <Header></Header>
     
-    
       <Container style={{width : "400px"}}>
         <Row>
           <Col>
+          <SearchBar></SearchBar>
+
             <AddBudget id={budgetId} setBudgetId={setBudgetId} />
           </Col>
         </Row>
