@@ -41,7 +41,7 @@ const BudgetList = ({ getBudgetId }) => {
   
   return (
     <>
-   
+     
       <div className="mb-2">
         <Button variant="primary" onClick={getBudget}>
           Refresh List

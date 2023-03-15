@@ -81,6 +81,7 @@ const getIncome = async () => {
             <th>Income Name</th>
             <th>Income Amount</th>
             <th>Income Date</th>
+            <th>Notes</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -92,6 +93,7 @@ const getIncome = async () => {
                 <td>{doc.name}</td>
                 <td>{doc.amount}</td>
                 <td>{doc.date}</td>
+                <td>{doc.notes}</td>
                 <td>
                   <button
                     variant="secondary"

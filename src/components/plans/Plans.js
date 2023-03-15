@@ -46,7 +46,7 @@ function Plans() {
       <Container style={{width : "400px"}}>
         <Row>
           <Col>
-          <SearchBar></SearchBar>
+          
 
             <AddBudget id={budgetId} setBudgetId={setBudgetId} />
           </Col>
@@ -54,6 +54,7 @@ function Plans() {
       </Container>
       <Container>
         <Row>
+        <SearchBar></SearchBar>
           <Col>
             <BudgetList getBudgetId={getBudgetIdHandler} />
           </Col>

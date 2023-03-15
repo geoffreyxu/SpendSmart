@@ -1,4 +1,5 @@
 .searchBarDiv {
+  font-family: "Baloo Da 2", serif;
     display: flex;
     flex-direction: row;
     width: 330px;
@@ -9,10 +10,12 @@
 }
 
 .searchWrapper{
+  font-family: "Baloo Da 2", serif;
     margin-bottom: 15px;
 }
 
 ul {
+  font-family: "Baloo Da 2", serif;
   list-style-type: none;
   padding: 0;
 }

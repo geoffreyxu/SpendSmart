@@ -13,6 +13,7 @@ const AddExpense = ({ id, setExpenseId }) => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("")
+  const [notes, setNotes] = useState("")
   
 
   const [flag, setFlag] = useState(true);
@@ -29,6 +30,7 @@ const AddExpense = ({ id, setExpenseId }) => {
       name,
       amount,
       date,
+      notes,
       userId: auth.currentUser.uid,
     };
     console.log(newExpense);
@@ -49,6 +51,7 @@ const AddExpense = ({ id, setExpenseId }) => {
     setName("");
     setAmount("");
     setDate("");
+    setNotes("");
   };
 
   const editHandler = async () => {
@@ -58,7 +61,8 @@ const AddExpense = ({ id, setExpenseId }) => {
       console.log("the record is :", docSnap.data());
       setName(docSnap.data().name);
       setAmount(docSnap.data().amount);
-      setDate(docSnap.data().date)
+      setDate(docSnap.data().date);
+      setNotes(docSnap.data().notes)
       
     } catch (err) {
       setMessage({ error: true, msg: err.message });
@@ -122,7 +126,15 @@ const AddExpense = ({ id, setExpenseId }) => {
               />
               </label>
           
-
+              <label>
+            Notes 
+            <input
+                type="text"
+                placeholder="Notes (optional)"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+              />
+              </label>
 
 
 

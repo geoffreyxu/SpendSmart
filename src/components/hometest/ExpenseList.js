@@ -94,6 +94,7 @@ const ExpenseList = ({ getExpenseId }) => {
             <th>Expense Name</th>
             <th>Expense Amount</th>
             <th>Expense Date</th>
+            <th>Notes</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -105,6 +106,7 @@ const ExpenseList = ({ getExpenseId }) => {
                 <td>{doc.name}</td>
                 <td>{doc.amount}</td>
                 <td>{doc.date}</td>
+                <td>{doc.notes}</td>
                 <td>
                   <button
                     variant="secondary"
