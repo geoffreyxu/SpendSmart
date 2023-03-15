@@ -59,11 +59,11 @@ return (
       <div className="income-expense-home">
         <div className="plus-home">
           <h3>Income</h3>
-          <p>+${totalIncome.toFixed(2)}</p>
+          <div className="income-number">+${totalIncome.toFixed(2)}</div>
         </div>
         <div className="minus-home">
           <h3>Expenses</h3>
-          <p>-${totalExpense.toFixed(2)}</p>
+          <div className="minus-number">-${totalExpense.toFixed(2)}</div>
         </div>
       </div>
       <div className="mb-2">
