@@ -2,7 +2,9 @@
 
 
 .amounts{
-    font-size:110%
+    font-size:110%;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -32,7 +34,7 @@
   }
   
   .calc-amount-head {
-    margin-top: 10px;
+    margin-top: 13px;
     margin-bottom: 16px;
     font-family: "Baloo Da 2", serif;
     font-size: 3rem;

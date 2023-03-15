@@ -61,6 +61,7 @@ const AddIncome = ({ id, setIncomeId }) => {
       setName(docSnap.data().name);
       setAmount(docSnap.data().amount);
       setDate(docSnap.data().date)
+      setNotes(docSnap.data().notes)
       
     } catch (err) {
       setMessage({ error: true, msg: err.message });
