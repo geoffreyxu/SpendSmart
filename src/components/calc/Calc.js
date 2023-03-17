@@ -1,3 +1,5 @@
+// This version of the calculator is functional but prone to an error which occurs when the user inputs percentages
+// that sum to less than 100%. The output is incorrect. 
 import React, { useState } from 'react';
 import Header from '../header/Header';
 
