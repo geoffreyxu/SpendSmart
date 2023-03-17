@@ -197,7 +197,7 @@ function Calendar(){
     return (
       <div>
         <h1>{bool?"income":"expenses"}</h1>
-        <PieChart events={events.slice(startIndex(), endIndex())} pos={bool} />
+        <PieChart events={(startIndex() != null) ? events.slice(startIndex(), endIndex()) : []} pos={bool} />
       </div>
     );  
   }
@@ -206,7 +206,7 @@ function Calendar(){
     return (
       <div>
         <h1>Total Profit Over Time</h1>
-        <LineChart events={events.slice(startIndex(), endIndex())}/>
+        <LineChart events={(startIndex() != null) ? events.slice(startIndex(), endIndex()) : []}/>
       </div>
     );  
   }
