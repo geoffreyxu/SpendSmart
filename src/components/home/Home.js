@@ -123,7 +123,8 @@ const Home = () => {
     </div>
     );
   };
-/*          <i className="fas fa-cart"></i>
+
+         <i className="fas fa-cart"></i>
           <p>Shopping</p>
           <i className="fas fa-clothes"></i>
           <p>Clothing</p>
@@ -140,7 +141,7 @@ const Home = () => {
           <i className="fas fa-thermometer"></i>
           <p>Medical</p>      
           <i className="fas fa-thermometer"></i>
-          <p>Misc.</p> */
+          <p>Misc.</p> 
   return (
     <>
     <Header></Header>  

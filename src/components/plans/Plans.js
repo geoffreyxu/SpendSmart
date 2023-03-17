@@ -131,11 +131,11 @@ function Plans() {
         </div>
     )
     
-}*/
+}
 
 export default Plans
-*/
 
+*/
 
 import { useState } from "react";
 import React from 'react'
