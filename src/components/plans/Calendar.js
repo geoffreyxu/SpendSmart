@@ -1,25 +1,100 @@
 import React, { useState } from 'react';
 import './Calendar.css'
+import PieChart from './PieChart';
 
 function Calendar(){
   const [date, setDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDate2, setSelectedDate2] = useState(null);
   const [showCellPopup, setShowCellPopup] = useState(false);
-  const [showAddPopup, setShowAddPopup] = useState(false);
   const events = [
     {
-      title: 'Meeting',
+      title: 'Meetng',
       date: "05/05/2023",
       value: 100
     },
     {
-      title: 'Lunch',
+      title: 'Lunh',
       date: "03/20/2023",
       value: -55
     },
     {
-      title: 'Presentation',
+      title: 'Prsentation',
+      date: "03/20/2023",
+      value: 30.94
+    },
+    {
+      title: 'Meting',
+      date: "05/05/2023",
+      value: 100
+    },
+    {
+      title: 'unch',
+      date: "03/20/2023",
+      value: -55
+    },
+    {
+      title: 'Presentaion',
+      date: "03/20/2023",
+      value: 30.94
+    },
+    {
+      title: 'Meing',
+      date: "05/05/2023",
+      value: 100
+    },
+    {
+      title: 'nch',
+      date: "03/20/2023",
+      value: -55
+    },
+    {
+      title: 'Presentan',
+      date: "03/20/2023",
+      value: 30.94
+    },
+    {
+      title: 'Meetzng',
+      date: "05/05/2023",
+      value: 100
+    },
+    {
+      title: 'Lunhz',
+      date: "03/20/2023",
+      value: -55
+    },
+    {
+      title: 'Prsenztation',
+      date: "03/20/2023",
+      value: 30.94
+    },
+    {
+      title: 'Metizng',
+      date: "05/05/2023",
+      value: 100
+    },
+    {
+      title: 'unczh',
+      date: "03/20/2023",
+      value: -55
+    },
+    {
+      title: 'Preszentaion',
+      date: "03/20/2023",
+      value: 30.94
+    },
+    {
+      title: 'Mzeing',
+      date: "05/05/2023",
+      value: 100
+    },
+    {
+      title: 'nzch',
+      date: "03/20/2023",
+      value: -55
+    },
+    {
+      title: 'Presezntan',
       date: "03/20/2023",
       value: 30.94
     },
@@ -43,26 +118,28 @@ function Calendar(){
       events[i].date = parseDate(events[i].date)
     }
   }
-
   
   parseAll()
   events.sort((a, b) => new Date(a.date) - new Date(b.date));
-  const [eventList, setEventList] = useState(events);
 
   const startIndex = () =>
   {
     let endDate = selectedDate2 >= selectedDate ? selectedDate2 : selectedDate;
     let startDate = selectedDate <= selectedDate2 ? selectedDate : selectedDate2;
-    let startIndex = eventList.findIndex((event) => event.date >= startDate && event.date <= endDate);
+    let startIndex = events.findIndex((event) => event.date >= startDate && event.date <= endDate);
+    if(startIndex < 0)
+    {
+      return;
+    }
     return startIndex;
   }
   const endIndex = () =>
   {
     let endDate = selectedDate2 >= selectedDate ? selectedDate2 : selectedDate;
-    let endIndex = eventList.findIndex((event) => event.date > endDate);
-    if(eventList[eventList.length - 1].date <= endDate)
+    let endIndex = events.findIndex((event) => event.date > endDate);
+    if(events[events.length - 1].date <= endDate)
     {
-      return eventList.length;
+      return events.length;
     }
     return endIndex;
   }
@@ -112,6 +189,15 @@ function Calendar(){
     blanksAfter.push(i);
   }
 
+  const renderPieChart = (bool) => {
+    return (
+      <div>
+        <h1>{bool?"profits":"expenses"}</h1>
+        <PieChart events={events.slice(startIndex(), endIndex())} pos={bool} />
+      </div>
+    );  
+  }
+
   const handleDayClick = (day) => {
     setSelectedDate(new Date(year, month, day));
     setSelectedDate2(new Date(year, month, day))
@@ -121,20 +207,8 @@ function Calendar(){
   const handlePopupClose = () => {
     setSelectedDate(null);
     setSelectedDate2(null);
-    setShowCellPopup(false) || setShowAddPopup(false);
+    setShowCellPopup(false);
   };
-
-  const handleAddClick = (year, month) => {
-    setSelectedDate(new Date(year, month, 1));
-    setShowAddPopup(true);
-  };
-
-  const handleRmvClick = (event) => {
-    const updatedEvents = [...eventList];
-    setEventList(updatedEvents.splice(updatedEvents.indexOf(event), 1));
-    console.log(eventList);
-    renderEventBoxes(eventList.slice(startIndex(), endIndex()));
-  }
   
   function ColoredSquare({backgroundColor, text}) {
     const style = {
@@ -169,8 +243,7 @@ function Calendar(){
         {eventList.map((box, index) => (
           <div className="event-box" style={{padding: "1.25vh"}}>
             <div className="event-text" key={index}>
-              {box.date.getMonth()}/{box.date.getDate()}/{box.date.getFullYear()} {box.title} {box.value} &nbsp;
-              <span onClick={() => handleRmvClick(box)}>X</span>
+              {box.date.getMonth() + 1}/{box.date.getDate()}/{box.date.getFullYear()} {box.title} {box.value} &nbsp;
             </div>
           </div>
         ))}
@@ -178,13 +251,12 @@ function Calendar(){
     );
   }
 
-
   const renderSquare = (day, month, year) => {
     let test = [];
     
-    for (let i = 0; i < eventList.length; i++){
-      if (eventList[i].date.getFullYear() === year && eventList[i].date.getMonth() === month && eventList[i].date.getDate() === day){
-        test.push(eventList[i].type)
+    for (let i = 0; i < events.length; i++){
+      if (events[i].date.getFullYear() === year && events[i].date.getMonth() === month && events[i].date.getDate() === day){
+        test.push(events[i].type)
       }
     }
 
@@ -242,7 +314,6 @@ function Calendar(){
           ))}
           {blanksAfter.map((_, i) => <div key={`after-${i}`} className="blank"></div>)}
         </div>
-        <button className="add-button" onClick={() => handleAddClick(year, month)}>+</button>
       </div>
     );
   };
@@ -303,10 +374,11 @@ function Calendar(){
           </div>
           <div className='popup-body'>
             <div className='section'>
-              {renderEventBoxes(eventList.slice(startIndex(), endIndex()))}
+              {(startIndex() != null) ? renderEventBoxes(events.slice(startIndex(), endIndex())): renderEventBoxes([])}
             </div>
             <div className='section'>
-
+              {renderPieChart(true)}
+              {renderPieChart(false)}
             </div>
             <div className='section'>
               
@@ -316,23 +388,11 @@ function Calendar(){
       </div>
     );
   };
-
-  const renderAddPopup = () => {
-    return (
-      <div className="popup-overlay">
-        <div className="popup">
-          <button className="popup-close" onClick={handlePopupClose}>X</button>
-        </div>
-      </div>
-    );
-  };
-
   
   return (
     <div className="calendar">
       {renderCalendar()}
       {showCellPopup && renderCellPopup()}
-      {showAddPopup && renderAddPopup()}
     </div>
   );
 };
