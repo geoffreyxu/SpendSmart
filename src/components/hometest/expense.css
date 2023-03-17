@@ -1,20 +1,18 @@
 
 .add-income {
     display: flex;
-    margin-top:-19.5rem;
-    margin-left: 20rem;
+    margin-top:-20rem;
+    margin-left: 51%;
     grid-column: 1; /* first column */
-    grid-row: -1;
+    grid-row: 1;
     
   }
 
   .add-expense {
     display: flex;
-    
     grid-column: 2; /* second column */
     grid-row: 1;
-    
-    
+    margin-left: 5%;
   }
   
 .transaction-container{
