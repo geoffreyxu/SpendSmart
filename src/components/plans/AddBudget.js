@@ -95,7 +95,7 @@ const AddBudget = ({ id, setBudgetId }) => {
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBudgetName">
             <InputGroup>
-            <InputGroup.Text id="formBudgetName">B</InputGroup.Text>
+            <InputGroup.Text id="formBudgetName"style={{ backgroundColor: "green"}}>B</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Budget Name"
@@ -109,7 +109,7 @@ const AddBudget = ({ id, setBudgetId }) => {
 
           <Form.Group className="mb-3" controlId="formBudgetAmount">
             <InputGroup>
-              <InputGroup.Text id="formBudgetAmount">A</InputGroup.Text>
+              <InputGroup.Text id="formBudgetAmount"style={{ backgroundColor: "green"}}>A</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Budget Amount"
@@ -121,7 +121,7 @@ const AddBudget = ({ id, setBudgetId }) => {
 
           <Form.Group className="mb-3" controlId="formBudgetDate">
             <InputGroup>
-              <InputGroup.Text id="formBudgetDate">D</InputGroup.Text>
+              <InputGroup.Text id="formBudgetDate"style={{ backgroundColor: "green"}}>D</InputGroup.Text>
               <Form.Control
                 type="text"
                 placeholder="Date in in form mm/dd/yyy"

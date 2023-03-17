@@ -11,7 +11,8 @@ import { AlignVerticalBottom } from "@mui/icons-material";
 const AddIncome = ({ id, setIncomeId }) => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("")
+  const [date, setDate] = useState("");
+  const [notes, setNotes] = useState("")
   
 
   const [flag, setFlag] = useState(true);
@@ -28,6 +29,7 @@ const AddIncome = ({ id, setIncomeId }) => {
       name,
       amount,
       date,
+      notes,
       userId: auth.currentUser.uid,
     };
     console.log(newIncome);
@@ -48,6 +50,7 @@ const AddIncome = ({ id, setIncomeId }) => {
     setName("");
     setAmount("");
     setDate("");
+    setNotes("")
   };
 
   const editHandler = async () => {
@@ -58,6 +61,7 @@ const AddIncome = ({ id, setIncomeId }) => {
       setName(docSnap.data().name);
       setAmount(docSnap.data().amount);
       setDate(docSnap.data().date)
+      setNotes(docSnap.data().notes)
       
     } catch (err) {
       setMessage({ error: true, msg: err.message });
@@ -120,6 +124,16 @@ const AddIncome = ({ id, setIncomeId }) => {
                 onChange={(e) => setDate(e.target.value)}
               />
               </label>
+              <label>
+            Notes 
+            <input
+                type="text"
+                placeholder="Notes (optional)"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+              />
+              </label>
+
 
           <div className="d-grid gap-2">
             <button variant="primary" type="Submit" >

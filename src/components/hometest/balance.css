@@ -19,7 +19,22 @@
     margin-left:8rem;
   }
   
-  .plus-home,
+  .plus-home{
+    
+    flex-basis: 50%;
+    font-size: 1.1rem;
+    font-family: "Baloo Da 2", serif;
+  }
+
+  .minus-number{
+    margin-left: 1.4rem;
+    color: red;
+  }
+
+  .income-number{
+    margin-left: 0.7rem;
+    color: rgb(18, 151, 18);
+  }
   .minus-home {
     flex-basis: 50%;
     font-family: "Baloo Da 2", serif;

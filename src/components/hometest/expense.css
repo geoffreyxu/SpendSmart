@@ -1,7 +1,7 @@
 
 .add-income {
     display: flex;
-    margin-top:-20rem;
+    margin-top:-24.8rem;
     margin-left: 51%;
     grid-column: 1; /* first column */
     grid-row: 1;
@@ -10,6 +10,7 @@
 
   .add-expense {
     display: flex;
+    margin-left: 3px;
     grid-column: 2; /* second column */
     grid-row: 1;
     margin-left: 5%;
