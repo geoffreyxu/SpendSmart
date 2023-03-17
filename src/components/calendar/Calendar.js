@@ -292,7 +292,7 @@ function Calendar(){
   const renderCalendar = () => {
     return (
       <div className="calendar">
-        <div className="header">
+        <div className="header-calendar">
           <button onClick={prevMonth}>Prev</button>
           <div className="select-container">
             <select value={month} onChange={(e) => setDate(new Date(year, parseInt(e.target.value), 1))}>
