@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Calendar.css'
 import PieChart from './PieChart';
+import LineChart from './LineChart';
 
 function Calendar(){
   const [date, setDate] = useState(new Date());
@@ -15,82 +16,82 @@ function Calendar(){
     },
     {
       title: 'Lunh',
-      date: "03/20/2023",
+      date: "03/25/2023",
       value: -55
     },
     {
       title: 'Prsentation',
-      date: "03/20/2023",
+      date: "03/23/2023",
       value: 30.94
     },
     {
       title: 'Meting',
-      date: "05/05/2023",
+      date: "05/01/2023",
       value: 100
     },
     {
       title: 'unch',
-      date: "03/20/2023",
+      date: "03/28/2023",
       value: -55
     },
     {
       title: 'Presentaion',
-      date: "03/20/2023",
+      date: "03/24/2023",
       value: 30.94
     },
     {
       title: 'Meing',
-      date: "05/05/2023",
+      date: "05/07/2023",
       value: 100
     },
     {
       title: 'nch',
-      date: "03/20/2023",
+      date: "03/29/2023",
       value: -55
     },
     {
       title: 'Presentan',
-      date: "03/20/2023",
+      date: "03/28/2023",
       value: 30.94
     },
     {
       title: 'Meetzng',
-      date: "05/05/2023",
+      date: "05/15/2023",
       value: 100
     },
     {
       title: 'Lunhz',
-      date: "03/20/2023",
+      date: "03/30/2023",
       value: -55
     },
     {
       title: 'Prsenztation',
-      date: "03/20/2023",
+      date: "03/02/2023",
       value: 30.94
     },
     {
       title: 'Metizng',
-      date: "05/05/2023",
+      date: "05/17/2023",
       value: 100
     },
     {
       title: 'unczh',
-      date: "03/20/2023",
+      date: "03/22/2023",
       value: -55
     },
     {
       title: 'Preszentaion',
-      date: "03/20/2023",
+      date: "03/12/2023",
       value: 30.94
     },
     {
       title: 'Mzeing',
-      date: "05/05/2023",
+      date: "05/13/2023",
       value: 100
     },
     {
       title: 'nzch',
-      date: "03/20/2023",
+      date: "03/26/2023",
       value: -55
     },
     {
@@ -194,6 +195,15 @@ function Calendar(){
       <div>
         <h1>{bool?"profits":"expenses"}</h1>
         <PieChart events={events.slice(startIndex(), endIndex())} pos={bool} />
+      </div>
+    );  
+  }
+
+  const renderLineChart = () => {
+    return (
+      <div>
+        <h1>Total Profit Over Time</h1>
+        <LineChart events={events.slice(startIndex(), endIndex())}/>
       </div>
     );  
   }
@@ -381,7 +391,7 @@ function Calendar(){
               {renderPieChart(false)}
             </div>
             <div className='section'>
-              
+              {renderLineChart()}
             </div>  
           </div>
         </div>
