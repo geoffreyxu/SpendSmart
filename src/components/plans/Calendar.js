@@ -195,7 +195,7 @@ function Calendar(){
   const renderPieChart = (bool) => {
     return (
       <div>
-        <h1>{bool?"profits":"expenses"}</h1>
+        <h1>{bool?"income":"expenses"}</h1>
         <PieChart events={events.slice(startIndex(), endIndex())} pos={bool} />
       </div>
     );  
