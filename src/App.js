@@ -4,8 +4,8 @@ import HomeTest from './components/hometest/hometest'
 import Login from './components/forms/Login'
 import Signup from './components/forms/Signup'
 import Calc from './components/calc/Calc'
-import Cal from './components/cal/calendar'
-import Plans from './components/plans/Plans'
+import Plans from './components/plans'
+import Calendar from './components/plans/Calendar'
 import Profile from './components/profile/Profile'
 import Layout from './components/Layout';
 import Header from './components/header/Header';
@@ -27,6 +27,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/home' element={<Home />}></Route>
     <Route path='/hometest' element={<HomeTest />}></Route>
     <Route path='/plans' element={<Plans />}></Route>
+    <Route path='/plans' element={<Calendar />}></Route>
     <Route path='/Calc' element={<Calc />}></Route>
     <Route path='/Cal' element={<Cal />}></Route>
     <Route path='/Profile' element={<Profile />}></Route>
