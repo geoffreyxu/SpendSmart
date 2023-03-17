@@ -13,7 +13,7 @@ const SearchBar = () => {
 
     useEffect(() => {
         getBudget();
-      }, []);
+      },  []);
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
