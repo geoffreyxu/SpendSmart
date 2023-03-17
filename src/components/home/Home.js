@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 import './Home.css'
 import Header from '../header/Header'
@@ -151,3 +152,34 @@ const Home = () => {
   
 
 export default Home
+*/
+/*
+import Header from '../header/Header'
+import React from "react";
+import Balance from "./Balance";
+import IncomeList from "./IncomeList";
+import ExpenseList from "./ExpenseList";
+import AddTransaction from "./AddTransaction";
+import { GlobalContextProvider } from "../homecontext/GlobalState";
+import "./Home.css";
+
+const Home = () => {
+  return (
+    <>
+    <Header></Header>
+    <GlobalContextProvider>
+      <div className="container-home">
+        <div className="app-wrapper-home">
+          <Balance />
+          <IncomeList />
+          <ExpenseList />
+          <AddTransaction />
+        </div>
+      </div>
+    </GlobalContextProvider>
+    </>
+  );
+};
+
+export default Home;
+*/

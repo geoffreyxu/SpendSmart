@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&family=Muli:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap");
+
 .header {
+    font-family: "Baloo Da 2", serif;
     display: flex;
     align-items: center;
     padding: 0px 15px;
-    background-color: aliceblue;
+    background-color: rgb(240, 255, 240);
     position: fixed;
     top: 0;
     left: 0;
@@ -10,6 +13,7 @@
     text-decoration: none;
 z-index: 10000000;
 }
+
 
 .logo {
     padding: 10px 15px;
@@ -38,6 +42,7 @@ z-index: 10000000;
 }
 
 .active {
+    margin-right: 10px;
     font-size: 18px;
     color: #333;
     font-weight: 500;
@@ -47,6 +52,7 @@ z-index: 10000000;
 }    
     .button
     {
+        
         border: none;
         background-color: rgb(153, 153, 153);
         color: #fff;

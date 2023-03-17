@@ -26,18 +26,21 @@ const Header = () => {
 
             <Link
                className="logo"
-               to="/home">
-               BudgetApp
+               to="/HomeTest"
+
+            >
+               $pend$mart
             </Link>
          </div>
          <nav className='link'>
             <ul className='ul'>
                <li>
                </li>
+               
                <li>
                   <NavLink
                      className="active"
-                     to="/Home"
+                     to="/HomeTest"
                      style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                      }
@@ -70,16 +73,15 @@ const Header = () => {
                <li>
                   <NavLink
                      className="active"
-                     to="/Profile"
+                     to="/Cal"
                      style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                      }
                   >
-                     Profile
+                     Calendar
                   </NavLink>
                </li>
                
-              
                
                <li> 
                   <button
