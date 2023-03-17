@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Calendar.css'
+import Header from '../header/Header'
 import PieChart from './PieChart';
 import LineChart from './LineChart';
 
@@ -402,10 +403,14 @@ function Calendar(){
   };
   
   return (
+    <div>
+    <Header></Header>
     <div className="calendar">
       {renderCalendar()}
       {showCellPopup && renderCellPopup()}
     </div>
+    </div>
+
   );
 };
 
